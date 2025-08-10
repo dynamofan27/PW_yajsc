@@ -1,0 +1,24 @@
+{
+  "name": "pw_yajsc",
+  "version": "1.0.0",
+  "description": "Unit-10",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx playwright test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dynamofan27/PW_yajsc.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dynamofan27/PW_yajsc/issues"
+  },
+  "homepage": "https://github.com/dynamofan27/PW_yajsc#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.54.2",
+    "@types/node": "^24.1.0"
+  }
+}
