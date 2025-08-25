@@ -8,9 +8,9 @@ export class LoginPage {
 
     constructor(page: Page) {
         this.page = page;
-        this.emailField = this.page.getByTestId("email");
-        this.passwordField = this.page.getByTestId("password");
-        this.loginButton = this.page.getByTestId("login-submit");
+        this.emailField = this.page.getByTestId('email');
+        this.passwordField = this.page.getByTestId('password');
+        this.loginButton = this.page.getByTestId('login-submit');
     }
 
     async goto() {
