@@ -7,6 +7,7 @@ export class HeaderComponent {
     contactLink: Locator;
     signInLink: Locator;
     navMenu: Locator;
+    navCart: Locator;
 
     constructor(page: Page) {
         this.page = page;
@@ -15,5 +16,6 @@ export class HeaderComponent {
         this.contactLink = this.page.getByTestId('nav-contact');
         this.signInLink = this.page.getByTestId('nav-sign-in');
         this.navMenu = this.page.getByTestId('nav-menu');
+        this.navCart = this.page.getByTestId('nav-cart');
     }
 }
