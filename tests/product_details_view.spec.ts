@@ -5,7 +5,6 @@ import { ProductPage } from '../pages/product.page';
 test('Verify user can view product details', async ({ page }) => {
     const homePage = new HomePage(page);
     const productPage = new ProductPage(page);
-
     await homePage.goto();
     await homePage.clickOnProductByName('Combination Pliers');
 
