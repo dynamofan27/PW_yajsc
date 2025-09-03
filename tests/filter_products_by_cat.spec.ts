@@ -1,14 +1,13 @@
-import { test, expect } from '@playwright/test';
-import { HomePage } from '../pages/home.page';
+import { expect } from '@playwright/test';
+import { test } from '../fixtures';
 import { PowerTools } from './enums/product.categories';
 
-test('Verify user can filter products by category', async ({ page }) => {
-    const homePage = new HomePage(page);
+test('Verify user can filter products by category', async ({ app, page }) => {
 
-    await homePage.goto();
+    await app.homePage.goto();
     await page.getByRole('checkbox', { name: PowerTools.Sander }).check();
 
-    const productNames = await homePage.productNames.allTextContents();
+    const productNames = await app.homePage.productNames.allTextContents();
     productNames.forEach((name) => {
         expect(name).toContain('Sander');
     });
