@@ -7,7 +7,7 @@ export class Cart {
     productPrice: Locator;
     totalProductPrice: Locator;
     totalCartPrice: Locator;
-    checkoutButton: Locator;
+    checkoutButton1: Locator;
 
     constructor(page: Page) {
         this.page = page;
@@ -16,7 +16,7 @@ export class Cart {
         this.productPrice = this.page.getByTestId('product-price');
         this.totalProductPrice = this.page.getByTestId('line-price');
         this.totalCartPrice = this.page.getByTestId('cart-total');
-        this.checkoutButton = this.page.getByTestId('proceed-1');
+        this.checkoutButton1 = this.page.getByTestId('proceed-1');
     }
 
 }
