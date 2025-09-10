@@ -1,6 +1,5 @@
 import { AllPages } from './pages/allPages';
 import { test as base } from '@playwright/test';
-//import path from 'path';
 
 type MyFixtures = {
   app: AllPages;
