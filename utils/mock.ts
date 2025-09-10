@@ -3,33 +3,24 @@ import { Route } from "@playwright/test";
 type Product = { id: string; name: string; price: number };
 type ProductListResponse = { data: Product[] };
 
-async function fetchProducts(
-  route: Route,
-  pageNumber: number
-): Promise<ProductListResponse> {
-  const response = await route.fetch({
-    url: `https://api.practicesoftwaretesting.com/products?page=${pageNumber}`,
-  });
-  return (await response.json()) as ProductListResponse;
+function generateProduct(id: number): Product {
+  return {
+    id: id.toString(),
+    name: `Mock Product ${id}`,
+    price: Math.floor(Math.random() * 1000) + 1,
+  };
 }
 
 export async function mockProducts(route: Route) {
-  const response = await route.fetch();
-  const json = (await response.json()) as ProductListResponse;
+  const products: Product[] = Array.from({ length: 20 }, (_, i) =>
+    generateProduct(i + 1)
+  );
 
-  let combinedData = json.data;
-
-  const secondPage = await fetchProducts(route, 2);
-  combinedData = combinedData.concat(secondPage.data);
-
-  const thirdPage = await fetchProducts(route, 3);
-  combinedData = combinedData.concat(thirdPage.data);
-
-  combinedData = combinedData.slice(0, 20);
+  const response: ProductListResponse = { data: products };
 
   await route.fulfill({
     status: 200,
     contentType: "application/json",
-    body: JSON.stringify({ data: combinedData }),
+    body: JSON.stringify(response),
   });
 }

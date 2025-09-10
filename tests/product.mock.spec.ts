@@ -6,5 +6,5 @@ test("Verify products quantity is 20", async ({ page, app }) => {
 
   await app.homePage.goto();
 
-  await expect(page.getByTestId("product-name")).toHaveCount(20);
+  await expect(app.productPage.productTitle).toHaveCount(20);
 });
